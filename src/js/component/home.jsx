@@ -5,7 +5,10 @@ import Input from './input.jsx';
 const Home = () => {
 	return (
 		<div className="text-center container-fluid">
-			<Input />
+		<ul>
+		<Input />
+		</ul>
+			
 		</div>
 	);
 };
