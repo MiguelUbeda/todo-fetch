@@ -1,5 +1,4 @@
-import React, {useState} from 'react';
-
+import React, {useEffect, useState} from 'react';
 
 
 export const Input = () => {
@@ -7,6 +6,20 @@ export const Input = () => {
     const [item, setItem] = useState([]);
     const [styles, setStyles] = useState('hidden');
    
+ useEffect(() =>
+ fetch('https://assets.breatheco.de/apis/fake/todos/user/elgranmiguelito')
+        .then(e => e.json())
+        .then((data) => setItem(data.map(d => d.label)))
+ ,[])   
+
+ useEffect(() =>
+ fetch('https://assets.breatheco.de/apis/fake/todos/user/elgranmiguelito', {
+    method: "PUT",
+    body: JSON.stringify(item.map(it => ({ label: it, done: false }))),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  }))
     
     const manager = (e) => {
         setInput(e.target.value)
@@ -20,7 +33,7 @@ export const Input = () => {
         newArr.splice(index,1)
         setItem(newArr)   
     }
- 
+    
     return (
         
         <div className="container  border w-50 shadow mt-5 p-3">
