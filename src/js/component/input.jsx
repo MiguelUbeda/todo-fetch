@@ -41,7 +41,12 @@ export const Input = () => {
         <input type="text" onKeyUp={manager} placeholder="what needs to be done?" />
         <ul style={{ listStyle: "none" }}>
             {item.map((u,index)=>{
-                return <li className="border mt-2 d-flex justify-content-between p-1" key={index} id={item.id} onMouseEnter={()=>{setStyles(index)}} onMouseLeave={() => setStyles("none")}>{u}<span className={"hidden"} onClick={() => deleting(index)}><i className="fa fa-trash m-2" style={{visibility: styles == index ? "" : "hidden"}}></i></span></li>
+                return <li className="border mt-2 d-flex justify-content-between p-1" key={index} id={item.id} onMouseEnter={()=>{setStyles(index)}} onMouseLeave={() => setStyles("none")}>
+                            {u}
+                            <span className={"hidden"} onClick={() => deleting(index)}>
+                                <i className="fa fa-trash m-2" style={{visibility: styles == index ? "" : "hidden"}}></i>
+                            </span>
+                        </li>
             })}
         </ul> 
         <p>{item.length == 0 ? "No items" : item.length + " item left"}</p>
