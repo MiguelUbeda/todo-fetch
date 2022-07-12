@@ -19,7 +19,7 @@ export const Input = () => {
     headers: {
       "Content-Type": "application/json"
     }
-  }))
+  }, [item]))
     
     const manager = (e) => {
         setInput(e.target.value)
