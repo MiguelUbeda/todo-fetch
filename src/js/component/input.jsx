@@ -7,7 +7,7 @@ export const Input = () => {
     const [styles, setStyles] = useState('hidden');
    
  useEffect(() =>
- fetch('https://assets.breatheco.de/apis/fake/todos/user/elgranmiguelito')
+    fetch('https://assets.breatheco.de/apis/fake/todos/user/elgranmiguelito')
         .then(e => e.json())
         .then((data) => setItem(data.map(d => d.label)))
  ,[])   
